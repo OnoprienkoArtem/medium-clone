@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'mc-register',
@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  from: FormGroup;
+  form: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
@@ -17,7 +17,16 @@ export class RegisterComponent implements OnInit {
   }
 
   initializeForm(): void {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
+  onSubmit(): void {
+    console.log(this.form.value, this.form.valid);
+    
   }
 
 }
