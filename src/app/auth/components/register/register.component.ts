@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { registerAction } from '../../store/actions';
+import { isSubmittingSelector } from '../../store/selectors';
 
 @Component({
   selector: 'mc-register',
@@ -10,8 +12,8 @@ import { registerAction } from '../../store/actions';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   form: FormGroup;
+  isSubmitting$: Observable<boolean>;
 
   constructor(
     private fb: FormBuilder,
@@ -20,6 +22,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.initializeValues();
+  }
+
+  initializeValues() {
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
   }
 
   initializeForm(): void {
