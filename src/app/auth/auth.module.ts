@@ -7,6 +7,7 @@ import { RegisterComponent } from 'src/app/auth/components/register/register.com
 
 import { StoreModule } from '@ngrx/store';
 import { reducers } from 'src/app/auth/store/reducers';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 const routes = [
   {
@@ -16,12 +17,13 @@ const routes = [
 ]
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [ RegisterComponent ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),
   ],
+  providers: [ AuthService ]
 })
 export class AuthModule { }

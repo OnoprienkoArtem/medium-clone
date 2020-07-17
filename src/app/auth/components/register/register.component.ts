@@ -6,6 +6,9 @@ import { select, Store } from '@ngrx/store';
 import { registerAction } from '../../store/actions';
 import { isSubmittingSelector } from '../../store/selectors';
 
+import { AuthService } from '../../services/auth.service';
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
+
 @Component({
   selector: 'mc-register',
   templateUrl: './register.component.html',
@@ -18,6 +21,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private store: Store,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +44,10 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     console.log(this.form.value, this.form.valid);
     this.store.dispatch(registerAction(this.form.value));
+    this.authService.register(this.form.value).subscribe((currentUser: CurrentUserInterface) => {
+      console.log('currentUser', currentUser);
+      
+    });
   }
 
 }
