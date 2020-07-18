@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { select, Store } from '@ngrx/store';
-import { registerAction } from '../../store/actions';
+import { registerAction } from '../../store/actions/register.action';
 import { isSubmittingSelector } from '../../store/selectors';
 
 import { AuthService } from '../../services/auth.service';
