@@ -14,7 +14,7 @@ const routes = [
     path: 'register',
     component: RegisterComponent
   }
-]
+];
 
 @NgModule({
   declarations: [ RegisterComponent ],
