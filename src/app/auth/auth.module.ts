@@ -11,6 +11,7 @@ import { RegisterEffect } from './store/effects/register.effect';
 import { reducers } from 'src/app/auth/store/reducers';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
 
 const routes = [
   {
@@ -27,6 +28,7 @@ const routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),
     EffectsModule.forFeature([RegisterEffect]),
+    BackendErrorMessagesModule,
   ],
   providers: [ AuthService ]
 })
