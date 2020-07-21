@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
+
 import { RegisterComponent } from 'src/app/auth/components/register/register.component';
 
 import { RegisterEffect } from './store/effects/register.effect';
 import { reducers } from 'src/app/auth/store/reducers';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
+import { PersistanceService } from '../shared/services/persistance.service';
 
 const routes = [
   {
@@ -30,6 +32,6 @@ const routes = [
     EffectsModule.forFeature([RegisterEffect]),
     BackendErrorMessagesModule,
   ],
-  providers: [ AuthService ]
+  providers: [ AuthService, PersistanceService ]
 })
 export class AuthModule { }
