@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     this.initializeValues();
   }
 
-  initializeValues() {
+  initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
     this.backendErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
