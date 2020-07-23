@@ -15,6 +15,7 @@ import { reducers } from 'src/app/auth/store/reducers';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { PersistanceService } from '../shared/services/persistance.service';
+import { LoginComponent } from './components/login/login.component';
 
 const routes = [
   {
@@ -24,7 +25,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [ RegisterComponent ],
+  declarations: [ RegisterComponent, LoginComponent ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
