@@ -13,6 +13,7 @@ import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 
 import { AuthInterceptor } from './auth/services/authinterceptor.service';
 import { PersistanceService } from './shared/services/persistance.service';
+import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PersistanceService } from './shared/services/persistance.service';
       logOnly: environment.production
     }),
     TopBarModule,
+    GlobalFeedModule,
   ],
   providers: [
     PersistanceService,
