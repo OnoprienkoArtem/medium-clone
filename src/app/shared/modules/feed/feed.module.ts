@@ -6,6 +6,9 @@ import { FeedComponent } from './components/feed/feed.component';
   declarations: [FeedComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    FeedComponent,
   ]
 })
 export class FeedModule { }
