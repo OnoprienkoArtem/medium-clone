@@ -3,10 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
-import { PersistanceService } from 'src/app/shared/services/persistance.service';
-import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from '../actions/getCurrentUser.action';
 import { FeedService } from '../../services/feed.service';
+import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
+import { getFeedAction, getFeedFailureAction, getFeedSuccessAction } from '../actions/getFeed.action';
 
 
 @Injectable()
@@ -14,15 +13,13 @@ export class GetFeedEffect {
   getFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getFeedAction),
-      switchMap(() => {
-
-
-        return this.authService.getCurrentUser().pipe(
-          map((currentUser: CurrentUserInterface) => {
-            return getCurrentUserSuccessAction({currentUser});
+      switchMap(({url}) => {
+        return this.feedService.getFeed(url).pipe(
+          map((feed: GetFeedResponseInterface) => {
+            return getFeedSuccessAction({feed});
           }),
           catchError(() => {
-            return of(getCurrentUserFailureAction());
+            return of(getFeedFailureAction());
           })
         );
       })
