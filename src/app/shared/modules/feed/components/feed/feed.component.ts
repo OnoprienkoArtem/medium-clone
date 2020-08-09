@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getFeedAction } from '../../store/actions/getFeed.action';
+import { errorSelector, feedSelector, isLoadingSelector } from '../../store/selectors';
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 
 @Component({
@@ -19,7 +20,17 @@ export class FeedComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(getFeedAction({url: this.apiUrl}));
+    this.initializeValues();
+    this.fetchData();
   }
 
+  initializeValues(): void {
+    this.feed$ = this.store.pipe(select(feedSelector));
+    this.error$ = this.store.pipe(select(errorSelector));
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
+  }
+
+  fetchData(): void {
+    this.store.dispatch(getFeedAction({url: this.apiUrl}));
+  }
 }
