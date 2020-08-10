@@ -14,10 +14,12 @@ import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { AuthInterceptor } from './auth/services/authinterceptor.service';
 import { PersistanceService } from './shared/services/persistance.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { ErrorMessageComponent } from './shared/modules/errorMessage/components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,
