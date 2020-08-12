@@ -21,7 +21,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   limit = environment.limit;
   baseUrl: string;
   queryParamsSubscription: Subscription;
-  currentPage: string;
+  currentPage: number;
 
   constructor(
     private store: Store,
@@ -42,7 +42,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   initializeListeners(): void {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
-        this.currentPage = params.page || '1';
+        this.currentPage = Number(params.page || '1');
       }
     );
   }
