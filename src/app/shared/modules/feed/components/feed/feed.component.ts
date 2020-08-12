@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { getFeedAction } from '../../store/actions/getFeed.action';
 import { errorSelector, feedSelector, isLoadingSelector } from '../../store/selectors';
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'mc-feed',
@@ -16,6 +17,8 @@ export class FeedComponent implements OnInit {
   feed$: Observable<GetFeedResponseInterface | null>;
   error$: Observable<string | null>;
   isLoading$: Observable<boolean>;
+  limit = environment.limit;
+
 
   constructor(private store: Store) { }
 
