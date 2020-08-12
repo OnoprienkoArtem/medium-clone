@@ -5,6 +5,7 @@ import { getFeedAction } from '../../store/actions/getFeed.action';
 import { errorSelector, feedSelector, isLoadingSelector } from '../../store/selectors';
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mc-feed',
@@ -18,9 +19,12 @@ export class FeedComponent implements OnInit {
   error$: Observable<string | null>;
   isLoading$: Observable<boolean>;
   limit = environment.limit;
+  baseUrl: string;
 
-
-  constructor(private store: Store) { }
+  constructor(
+    private store: Store,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.initializeValues();
@@ -31,6 +35,7 @@ export class FeedComponent implements OnInit {
     this.feed$ = this.store.pipe(select(feedSelector));
     this.error$ = this.store.pipe(select(errorSelector));
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
+    this.baseUrl = this.router.url.split('?')[0];
   }
 
   fetchData(): void {
