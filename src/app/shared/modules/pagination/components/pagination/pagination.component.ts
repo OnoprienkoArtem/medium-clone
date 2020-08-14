@@ -11,7 +11,9 @@ export class PaginationComponent implements OnInit {
   @Input() currentPage: number;
   @Input() url: string;
 
+  pagesCount: number;
+
   ngOnInit(): void {
-    
+    this.pagesCount = Math.ceil(this.total / this.limit);
   }
 }
