@@ -1,11 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { stringify, parseUrl } from 'query-string';
+
 import { getFeedAction } from '../../store/actions/getFeed.action';
 import { errorSelector, feedSelector, isLoadingSelector } from '../../store/selectors';
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 import { environment } from 'src/environments/environment';
-import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'mc-feed',
@@ -55,6 +57,10 @@ export class FeedComponent implements OnInit, OnDestroy {
   }
 
   fetchFeed(): void {
+    const offset = this.currentPage * this.limit - this.limit;
+    const parsedUrl = parseUrl(this.apiUrl);
+    console.log(parsedUrl);
+    
     this.store.dispatch(getFeedAction({url: this.apiUrl}));
   }
 }
