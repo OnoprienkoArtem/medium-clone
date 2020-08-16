@@ -32,7 +32,6 @@ export class FeedComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
-    this.fetchData();
   }
 
   ngOnDestroy(): void {
@@ -43,6 +42,7 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
         this.currentPage = Number(params.page || '1');
+        this.fetchFeed();
       }
     );
   }
@@ -54,7 +54,7 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.baseUrl = this.router.url.split('?')[0];
   }
 
-  fetchData(): void {
+  fetchFeed(): void {
     this.store.dispatch(getFeedAction({url: this.apiUrl}));
   }
 }
