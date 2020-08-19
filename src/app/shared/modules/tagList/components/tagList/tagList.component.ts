@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PopularTagType } from 'src/app/shared/types/popularTag.type';
 
 @Component({
   selector: 'mc-tag-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tagList.component.scss']
 })
 export class TagListComponent implements OnInit {
+
+  @Input() tags: PopularTagType[];
 
   constructor() { }
 
