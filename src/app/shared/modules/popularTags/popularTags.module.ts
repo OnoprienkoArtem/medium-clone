@@ -5,10 +5,11 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { reducers } from 'src/app/auth/store/reducers';
 import { GetPopularTagsEffect } from './store/effects/getPopularTags.effect';
+import { PopularTagsComponent } from './components/popular-tags/popular-tags.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PopularTagsComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('popularTags', reducers),
