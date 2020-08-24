@@ -2,7 +2,7 @@
 
 <mc-error-message
   *ngIf="error$ | async"
-  [message]="error$ | async"
+  [errorMessage]="error$ | async"
 ></mc-error-message>
 
 <div 
@@ -13,10 +13,10 @@
   <div class="tag-list">
     <a 
       class="tag-default tag-pill"
-      *ngFor="let popularTag of popularTags$ |async"
+      *ngFor="let popularTag of popularTags$ | async"
       [routerLink]="['/tags', popularTag]"
     >
-      {{ popularTags }}
+      {{ popularTag }}
     </a>
   </div>
 </div>
