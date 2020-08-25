@@ -13,7 +13,7 @@
   <div class="tag-list">
     <a 
       class="tag-default tag-pill"
-      *ngFor="let popularTag of popularTags$ | async"
+      *ngFor="let popularTag of popularTags$ |async"
       [routerLink]="['/tags', popularTag]"
     >
       {{ popularTag }}
