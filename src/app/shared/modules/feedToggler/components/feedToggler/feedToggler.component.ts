@@ -12,7 +12,7 @@ import { isLoggedInSelector } from 'src/app/auth/store/selectors';
 export class FeedTogglerComponent implements OnInit {
   @Input() tagName: string;
 
-  isLoading$: Observable<boolean>;
+  isLoggedIn$: Observable<boolean>;
 
   constructor(private store: Store) { }
 
@@ -21,7 +21,7 @@ export class FeedTogglerComponent implements OnInit {
   }
 
   initializeValues(): void {
-    this.isLoading$ = this.store.pipe(select(isLoggedInSelector));
+    this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
   }
 
 }

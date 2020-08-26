@@ -8,6 +8,7 @@ import { FeedTogglerComponent } from './components/feedToggler/feedToggler.compo
   declarations: [FeedTogglerComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [FeedTogglerComponent]
 })
-export class FeedTogglerModule { }
+export class FeedTogglerModule {}
