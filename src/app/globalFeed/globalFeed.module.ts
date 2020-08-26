@@ -7,6 +7,7 @@ import { BannerModule } from '../shared/modules/banner/banner.module';
 
 import { GlobalFeedComponent } from './components/global-feed/global-feed.component';
 import { PopularTagsModule } from '../shared/modules/popularTags/popularTags.module';
+import { FeedTogglerModule } from '../shared/modules/feedToggler/feedToggler.module';
 
 const routes = [
   {
@@ -23,6 +24,7 @@ const routes = [
     FeedModule,
     BannerModule,
     PopularTagsModule,
+    FeedTogglerModule,
   ],
 })
 export class GlobalFeedModule { }
