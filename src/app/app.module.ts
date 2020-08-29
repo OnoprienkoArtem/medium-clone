@@ -15,6 +15,7 @@ import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { AuthInterceptor } from './auth/services/authinterceptor.service';
 import { PersistanceService } from './shared/services/persistance.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { YourFeedModule } from './shared/modules/yourFeed/yourFeed.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { GlobalFeedModule } from './globalFeed/globalFeed.module';
     }),
     TopBarModule,
     GlobalFeedModule,
+    YourFeedModule,
   ],
   providers: [
     PersistanceService,
