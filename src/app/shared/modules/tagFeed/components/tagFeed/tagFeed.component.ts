@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'mc-tag-feed',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TagFeedComponent implements OnInit {
 
-  constructor() { }
+  apiUrl: string;
+  tagName: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.tagName = this.route.snapshot.paramMap.get('slug');
+    this.apiUrl = `/articles?tag=${this.tagName}`;
   }
 
 }
