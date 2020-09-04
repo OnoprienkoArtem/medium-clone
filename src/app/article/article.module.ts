@@ -9,6 +9,7 @@ import { ErrorMessageModule } from '../shared/modules/errorMessage/errorMessage.
 import { LoadingModule } from '../shared/modules/loading/loading.module';
 import { PaginationModule } from '../shared/modules/pagination/pagination.module';
 import { TagListModule } from '../shared/modules/tagList/tagList.module';
+import { GetArticleEffect } from './store/effects/getArticle.effect';
 
 @NgModule({
   declarations: [],
