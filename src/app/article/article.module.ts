@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-
-
 import { ArticleService } from '../shared/services/article.service';
 import { ErrorMessageModule } from '../shared/modules/errorMessage/errorMessage.module';
 import { LoadingModule } from '../shared/modules/loading/loading.module';
@@ -21,7 +19,7 @@ import { TagListModule } from '../shared/modules/tagList/tagList.module';
     LoadingModule,
     PaginationModule,
     TagListModule,
-    EffectsModule.forFeature([ArticleEffect]),
+    EffectsModule.forFeature([GetArticleEffect]),
     StoreModule.forFeature('feed', reducers),
   ],
   exports: [
