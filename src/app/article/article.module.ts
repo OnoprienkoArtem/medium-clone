@@ -10,9 +10,11 @@ import { LoadingModule } from '../shared/modules/loading/loading.module';
 import { PaginationModule } from '../shared/modules/pagination/pagination.module';
 import { TagListModule } from '../shared/modules/tagList/tagList.module';
 import { GetArticleEffect } from './store/effects/getArticle.effect';
+import { ArticleComponent } from './components/article/article.component';
+import { reducers } from './store/reducers';
 
 @NgModule({
-  declarations: [],
+  declarations: [ArticleComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -30,4 +32,4 @@ import { GetArticleEffect } from './store/effects/getArticle.effect';
     ArticleService
   ],
 })
-export class FeedModule { }
+export class ArticleModule { }
