@@ -17,6 +17,7 @@ import { PersistanceService } from './shared/services/persistance.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { YourFeedModule } from './shared/modules/yourFeed/yourFeed.module';
 import { TagFeedModule } from './shared/modules/tagFeed/tagFeed.module';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TagFeedModule } from './shared/modules/tagFeed/tagFeed.module';
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    ArticleModule,
   ],
   providers: [
     PersistanceService,

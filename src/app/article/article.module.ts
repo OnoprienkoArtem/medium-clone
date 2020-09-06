@@ -13,6 +13,13 @@ import { GetArticleEffect } from './store/effects/getArticle.effect';
 import { ArticleComponent } from './components/article/article.component';
 import { reducers } from './store/reducers';
 
+const route = [
+  {
+    path: 'articles/:slug',
+    component: ArticleComponent,
+  }
+];
+
 @NgModule({
   declarations: [ArticleComponent],
   imports: [
@@ -24,10 +31,9 @@ import { reducers } from './store/reducers';
     TagListModule,
     EffectsModule.forFeature([GetArticleEffect]),
     StoreModule.forFeature('feed', reducers),
+    RouterModule.forChild(route),
   ],
-  exports: [
-    ,
-  ],
+  exports: [],
   providers: [
     ArticleService
   ],
