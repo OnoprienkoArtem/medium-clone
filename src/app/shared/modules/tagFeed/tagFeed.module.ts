@@ -12,7 +12,7 @@ const routes = [
     path: 'tags/:slug',
     component: TagFeedComponent,
   }
-]
+];
 
 @NgModule({
   declarations: [TagFeedComponent],
