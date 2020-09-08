@@ -2,9 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { currentUserSelector } from 'src/app/auth/store/selectors';
 
 import { ArticleInterface } from 'src/app/shared/types/article.interface';
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { getArticleAction } from '../../store/actions/getArticle.action';
 import { articleSelector, errorSelector, isLoadingSelector } from '../../store/selectors';
 
@@ -19,6 +22,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   articleSubscription: Subscription;
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
+  isAuthor$: Observable<boolean>;
 
   constructor(
     private store: Store,
@@ -46,6 +50,17 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.slug = this.route.snapshot.paramMap.get('slug');
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
+    // tslint:disable-next-line: deprecation
+    this.isAuthor$ = combineLatest(
+      this.store.pipe(select(articleSelector)),
+      this.store.pipe(select(currentUserSelector)),
+    ).pipe(map(([article, currentUser]: [ArticleInterface | null, CurrentUserInterface | null]) => {
+      if (!article || !currentUser) {
+        return false;
+      }
+
+      return currentUser.username === article.author.username;
+    }));
   }
 
   fetchData(): void {
