@@ -30,7 +30,7 @@ const route = [
     PaginationModule,
     TagListModule,
     EffectsModule.forFeature([GetArticleEffect]),
-    StoreModule.forFeature('feed', reducers),
+    StoreModule.forFeature('article', reducers),
     RouterModule.forChild(route),
   ],
   exports: [],
