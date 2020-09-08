@@ -18,8 +18,6 @@ export class GetArticleEffect {
     this.actions$.pipe(
       ofType(getArticleAction),
       switchMap(({slug}) => {
-        console.log('rrrrr', slug);
-        
         return this.articleService.getArticle(slug).pipe(
           map((article: ArticleInterface) => {
             return getArticleSuccessAction({article});
