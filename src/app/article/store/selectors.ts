@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { feedFeatureSelector } from 'src/app/shared/modules/feed/store/selectors';
 import { AppStateInterface } from 'src/app/shared/types/appState.interface';
 import { ArticleStateInterface } from '../types/articleState.interface';
 
