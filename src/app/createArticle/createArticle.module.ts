@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CreateArticleComponent } from './components/create-article/create-article.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [CreateArticleComponent],
   imports: [
     CommonModule
   ]
