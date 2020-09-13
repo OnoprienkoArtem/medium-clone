@@ -11,7 +11,7 @@ import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.inter
 export class ArticleFormComponent implements OnInit {
   @Input() initialValues: ArticleInputInterface;
   @Input() isSubmitting: boolean;
-  @Input() error: BackendErrorsInterface | null;
+  @Input() errors: BackendErrorsInterface | null;
 
   @Output() articleSubmitEvent = new EventEmitter<ArticleInputInterface>();
 
