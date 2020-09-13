@@ -23,12 +23,16 @@ export class ArticleFormComponent implements OnInit {
     this.initializeForm();
   }
 
-  initializeForm() {
+  initializeForm(): void {
     this.form = this.fb.group({
-      title: '',
-      description: '',
-      body: '',
-      tagList: ''
+      title: this.initialValues.title,
+      description: this.initialValues.description,
+      body: this.initialValues.body,
+      tagList: this.initialValues.tagList.join(' ')
     });
+  }
+
+  onSubmit(): void {
+    this.articleSubmitEvent.emit(this.form.value);
   }
 }
