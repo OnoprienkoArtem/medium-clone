@@ -4,6 +4,10 @@ import { CreateArticleComponent } from './components/createArticle/createArticle
 import { RouterModule } from '@angular/router';
 import { ArticleFormModule } from '../shared/modules/articleForm/articleForm.module';
 import { CreateArticleService } from './services/createArticle.service';
+import { EffectsModule } from '@ngrx/effects';
+import { CreateArticleEffect } from './store/effects/createArticle.effect';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
 
 const routes = [
   {
@@ -17,6 +21,8 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    EffectsModule.forFeature([CreateArticleEffect]),
+    StoreModule.forFeature('createArticle', reducers),
     ArticleFormModule,
   ],
   providers: [CreateArticleService]
