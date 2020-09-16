@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { ArticleInterface } from 'src/app/shared/types/article.interface';
-import { CreateArticleService } from '../../services/createArticle.service';
+import { CreateArticleService } from '../../services/editArticle.service';
 import { createArticleAction, createArticleFailureAction, createArticleSuccessAction } from '../actions/createArticle.action';
 
 
