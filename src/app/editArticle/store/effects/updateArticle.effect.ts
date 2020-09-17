@@ -7,32 +7,32 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { ArticleInterface } from 'src/app/shared/types/article.interface';
-import { CreateArticleService } from '../../services/editArticle.service';
-import { createArticleAction, createArticleFailureAction, createArticleSuccessAction } from '../actions/createArticle.action';
+import { EditArticleService } from '../../services/editArticle.service';
+import { updateArticleAction, updateArticleFailureAction, updateArticleSuccessAction } from '../actions/updateArticle.action';
 
 
 @Injectable()
-export class CreateArticleEffect {
+export class UpdateArticleEffect {
 
-  createArticle$ = createEffect(() =>
+  updateArticle$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(createArticleAction),
-      switchMap(({articleInput}) => {
-        return this.createArticleService.createArticle(articleInput).pipe(
+      ofType(updateArticleAction),
+      switchMap(({slug, articleInput}) => {
+        return this.editArticleService.updateArticle(slug, articleInput).pipe(
           map((article: ArticleInterface) => {
-            return createArticleSuccessAction({article});
+            return updateArticleSuccessAction({article});
           }),
           catchError((errorResponse: HttpErrorResponse) => {
-            return of(createArticleFailureAction({errors: errorResponse.error.errors}));
+            return of(updateArticleFailureAction({errors: errorResponse.error.errors}));
           })
         );
       })
     )
   );
 
-  redirectAfterCreate$ = createEffect(() =>
+  redirectAfterUpdate$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(createArticleSuccessAction),
+      ofType(updateArticleSuccessAction),
       tap(({article}) => {
         this.router.navigate(['/articles', article.slug]);
       })
@@ -41,7 +41,7 @@ export class CreateArticleEffect {
 
   constructor(
     private actions$: Actions,
-    private createArticleService: CreateArticleService,
+    private editArticleService: EditArticleService,
     private router: Router,
   ) {}
 }

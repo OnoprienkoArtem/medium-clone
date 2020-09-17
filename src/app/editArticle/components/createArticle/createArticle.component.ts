@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
-import { createArticleAction } from '../../store/actions/createArticle.action';
+import { createArticleAction } from '../../store/actions/updateArticle.action';
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors';
 
 @Component({
