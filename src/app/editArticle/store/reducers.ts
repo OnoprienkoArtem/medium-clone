@@ -1,31 +1,33 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { CreateArticleStateInterface } from '../types/editArticleState.interface';
-import { createArticleAction, createArticleFailureAction, createArticleSuccessAction } from './actions/createArticle.action';
+import { EditArticleStateInterface } from '../types/editArticleState.interface';
+import { updateArticleAction, updateArticleFailureAction, updateArticleSuccessAction } from './actions/updateArticle.action';
 
-const initialState: CreateArticleStateInterface = {
+const initialState: EditArticleStateInterface = {
+  isLoading: false,
+  article: null,
   isSubmitting: false,
   validationErrors: null,
 };
 
-const createArticleReducer = createReducer(
+const editArticleReducer = createReducer(
   initialState,
   on(
-    createArticleAction,
-    (state): CreateArticleStateInterface => ({
+    updateArticleAction,
+    (state): EditArticleStateInterface => ({
       ...state,
       isSubmitting: true
     })
   ),
   on(
-    createArticleSuccessAction,
-    (state): CreateArticleStateInterface => ({
+    updateArticleSuccessAction,
+    (state): EditArticleStateInterface => ({
       ...state,
       isSubmitting: false
     })
   ),
   on(
-    createArticleFailureAction,
-    (state, action): CreateArticleStateInterface => ({
+    updateArticleFailureAction,
+    (state, action): EditArticleStateInterface => ({
       ...state,
       isSubmitting: false,
       validationErrors: action.errors,
@@ -33,6 +35,6 @@ const createArticleReducer = createReducer(
   ),
 );
 
-export function reducers(state: CreateArticleStateInterface, action: Action) {
-  return createArticleReducer(state, action);
+export function reducers(state: EditArticleStateInterface, action: Action) {
+  return editArticleReducer(state, action);
 }
