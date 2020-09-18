@@ -1,18 +1,28 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AppStateInterface } from 'src/app/shared/types/appState.interface';
-import { CreateArticleStateInterface } from '../types/editArticleState.interface';
+import { EditArticleStateInterface } from '../types/editArticleState.interface';
 
-export const createArticleFeatureSelector = createFeatureSelector<
+export const editArticleFeatureSelector = createFeatureSelector<
   AppStateInterface,
-  CreateArticleStateInterface
->('createArticle');
+  EditArticleStateInterface
+>('editArticle');
+
+export const articleSelector = createSelector(
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface) => editArticleState.article
+);
+
+export const isLoadingSelector = createSelector(
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface) => editArticleState.isLoading
+);
 
 export const isSubmittingSelector = createSelector(
-  createArticleFeatureSelector,
-  (createArticleState: CreateArticleStateInterface) => createArticleState.isSubmitting
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface) => editArticleState.isSubmitting
 );
 
 export const validationErrorsSelector = createSelector(
-  createArticleFeatureSelector,
-  (createArticleState: CreateArticleStateInterface) => createArticleState.validationErrors
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface) => editArticleState.validationErrors
 );
