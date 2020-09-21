@@ -10,6 +10,7 @@ import { GetArticleEffect } from '../article/store/effects/getArticle.effect';
 import { UpdateArticleEffect } from './store/effects/updateArticle.effect';
 import { ArticleService as ShareArticleService } from '../shared/services/article.service';
 import { EditArticleService } from './services/editArticle.service';
+import { LoadingModule } from '../shared/modules/loading/loading.module';
 
 const routes = [
   {
@@ -26,7 +27,8 @@ const routes = [
     EffectsModule.forFeature([UpdateArticleEffect, GetArticleEffect]),
     StoreModule.forFeature('editArticle', reducers),
     ArticleFormModule,
+    LoadingModule,
   ],
   providers: [EditArticleService, ShareArticleService]
 })
-export class CreateArticleModule { }
+export class EditArticleModule { }

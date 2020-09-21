@@ -19,6 +19,7 @@ import { YourFeedModule } from './shared/modules/yourFeed/yourFeed.module';
 import { TagFeedModule } from './shared/modules/tagFeed/tagFeed.module';
 import { ArticleModule } from './article/article.module';
 import { CreateArticleModule } from './createArticle/createArticle.module';
+import { EditArticleModule } from './editArticle/editArticle.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
     TagFeedModule,
     CreateArticleModule,
     ArticleModule,
+    EditArticleModule,
   ],
   providers: [
     PersistanceService,
