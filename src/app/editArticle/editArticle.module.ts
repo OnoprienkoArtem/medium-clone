@@ -6,7 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 import { EditArticleComponent } from './components/editArticle/editArticle.component';
-import { GetArticleEffect } from '../article/store/effects/getArticle.effect';
+import { GetArticleEffect } from './store/effects/getArticle.effect';
 import { UpdateArticleEffect } from './store/effects/updateArticle.effect';
 import { ArticleService as ShareArticleService } from '../shared/services/article.service';
 import { EditArticleService } from './services/editArticle.service';

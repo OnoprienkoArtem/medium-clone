@@ -1,6 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
@@ -11,10 +9,8 @@ import { ArticleInterface } from '../../../shared/types/article.interface';
 import { ArticleService as SharedArticleService } from '../../../shared/services/article.service';
 import { getArticleAction, getArticleSuccessAction, getArticleFailureAction } from '../actions/getArticle.action';
 
-
 @Injectable()
 export class GetArticleEffect {
-
   getArticle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getArticleAction),
@@ -34,6 +30,5 @@ export class GetArticleEffect {
   constructor(
     private actions$: Actions,
     private sharedArticleService: SharedArticleService,
-    private router: Router,
   ) {}
 }
