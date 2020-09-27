@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { currentUserSelector } from 'src/app/auth/store/selectors';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
+import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors';
 
 @Component({
   selector: 'mc-settings',
@@ -15,6 +17,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   form: FormGroup;
   currentUserSubscription: Subscription;
   currentUser: CurrentUserInterface;
+  isSubmitting$: Observable<boolean>;
+  backendErrors$: Observable<BackendErrorsInterface | null>;
 
   constructor(
     private fb: FormBuilder,
@@ -22,27 +26,33 @@ export class SettingsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.initializeValues();
     this.initializeListeners();
-    this.initializeForm();
   }
 
   ngOnDestroy(): void {
     this.currentUserSubscription.unsubscribe();
   }
 
+  initializeValues(): void {
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.backendErrors$ = this.store.pipe(select(validationErrorsSelector));
+  }
+
   initializeListeners(): void {
     this.currentUserSubscription = this.store.pipe(select(currentUserSelector), filter(Boolean))
       .subscribe((currentUser: CurrentUserInterface) => {
         this.currentUser = currentUser;
+        this.initializeForm();
       });
   }
 
   initializeForm(): void {
     this.form = this.fb.group({
-      image: '',
-      username: '',
-      bio: '',
-      email: '',
+      image: this.currentUser.image,
+      username: this.currentUser.username,
+      bio: this.currentUser.bio,
+      email: this.currentUser.email,
       password: '',
     });
   }
