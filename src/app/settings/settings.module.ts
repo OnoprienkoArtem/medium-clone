@@ -4,6 +4,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { RouterModule } from '@angular/router';
 import { reducers } from './store/reducers';
 import { StoreModule } from '@ngrx/store';
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes = [
   {
@@ -18,6 +20,8 @@ const routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('settings', reducers),
+    BackendErrorMessagesModule,
+    ReactiveFormsModule,
   ]
 })
 export class SettingsModule { }

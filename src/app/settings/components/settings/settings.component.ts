@@ -57,4 +57,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
     });
   }
 
+  submit(): void {
+
+  }
+
+  logout(): void {
+
+  }
+
 }
