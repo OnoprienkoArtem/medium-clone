@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { logoutAction } from 'src/app/auth/store/actions/sync.action';
 import { updateCurrentUserAction } from 'src/app/auth/store/actions/updateCurrentUser.action';
 import { currentUserSelector } from 'src/app/auth/store/selectors';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
@@ -69,7 +70,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
-
+    this.store.dispatch(logoutAction());
   }
-
 }

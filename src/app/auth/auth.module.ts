@@ -17,6 +17,7 @@ import { LoginEffect } from 'src/app/auth/store/effects/login.effect';
 import { reducers } from 'src/app/auth/store/reducers';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { LogoutEffect } from './store/effects/logout.effect';
 
 const routes = [
   {
@@ -36,7 +37,13 @@ const routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect, UpdateCurrentUserEffect]),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      LoginEffect,
+      GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
+      LogoutEffect
+    ]),
     BackendErrorMessagesModule,
   ],
   providers: [
