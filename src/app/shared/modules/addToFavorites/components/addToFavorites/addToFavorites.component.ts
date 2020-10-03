@@ -6,13 +6,22 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./addToFavorites.component.scss']
 })
 export class AddToFavoritesComponent implements OnInit {
-  @Input() isFavorited: boolean;
-  @Input() favoritesCount: number;
+  @Input() isFavoritedProps: boolean;
+  @Input() favoritesCountProps: number;
   @Input() articleSlug: string;
+
+  favoritesCount: number;
+  isFavorites: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.favoritesCount = this.favoritesCountProps;
+    this.isFavorites = this.isFavoritedProps;
+  }
+
+  handleLike(): void {
+
   }
 
 }
