@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mc-add-to-favorites',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addToFavorites.component.scss']
 })
 export class AddToFavoritesComponent implements OnInit {
+  @Input() isFavorited: boolean;
+  @Input() favoritesCount: number;
+  @Input() articleSlug: string;
 
   constructor() { }
 

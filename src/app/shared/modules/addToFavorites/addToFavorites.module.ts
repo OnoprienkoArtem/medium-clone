@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddToFavoritesComponent } from './components/add-to-favorites/add-to-favorites.component';
+import { AddToFavoritesComponent } from './components/addToFavorites/addToFavorites.component';
 
 
 
 @NgModule({
   declarations: [AddToFavoritesComponent],
+  exports: [AddToFavoritesComponent],
   imports: [
     CommonModule
   ]
