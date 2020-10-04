@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ArticleInterface } from '../types/article.interface';
-import { GetArticleResponseInterface } from '../types/getArticleResponce.interface';
+import { GetArticleResponseInterface } from '../types/getArticleResponse.interface';
 
 @Injectable()
 export class ArticleService {
