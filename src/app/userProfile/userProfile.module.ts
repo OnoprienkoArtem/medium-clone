@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { UserProfileComponent } from './components/userProfile/userProfile.component';
 
 const routes = [
   {
     path: 'profiles/:slug',
-    component: ''
+    component: UserProfileComponent
   },
   {
     path: 'profiles/:slug/favorites',
-    component: ''
+    component: UserProfileComponent
   },
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [UserProfileComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
