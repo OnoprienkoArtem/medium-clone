@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { combineLatest, Observable, Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { currentUserSelector } from 'src/app/auth/store/selectors';
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { getUserProfileAction } from '../../store/actions/getUserProfile.action';
 import { errorSelector, isLoadingSelector, userProfileSelector } from '../../store/selectors';
 import { UserProfileInterface } from '../../types/userProfile.interface';
@@ -18,10 +21,12 @@ export class UserProfileComponent implements OnInit {
   userProfileSubscription: Subscription;
   apiUrl: string;
   slug: string;
+  isCurrentUserProfile$: Observable<boolean>;
 
   constructor(
     private store: Store,
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -31,16 +36,28 @@ export class UserProfileComponent implements OnInit {
   }
 
   initializeValues(): void {
+    const isFavorites = this.router.url.includes('favorites');
     this.slug = this.route.snapshot.paramMap.get('slug');
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
+    this.apiUrl = isFavorites
+      ? `/article?favorited=${this.slug}`
+      : `/article?author=${this.slug}`;
+    this.isCurrentUserProfile$ = combineLatest([
+      this.store.pipe(select(currentUserSelector), filter(Boolean)),
+      this.store.pipe(select(userProfileSelector), filter(Boolean)),
+    ]).pipe(
+      map(([currentUser, userProfile]: [CurrentUserInterface, UserProfileInterface]) => {
+        return currentUser.username === userProfile.username;
+      })
+    );
   }
 
   initializeListeners(): void {
     this.userProfileSubscription = this.store.pipe(select(userProfileSelector))
-    .subscribe(
-      
-    )
+    .subscribe((userProfile: UserProfileInterface) => {
+      this.userProfile = userProfile;
+    });
   }
 
   fetchData(): void {
