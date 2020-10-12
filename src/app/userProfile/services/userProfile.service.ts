@@ -12,7 +12,7 @@ export class UserProfileService {
   constructor(private http: HttpClient) { }
 
   getUserProfile(slug: string): Observable<UserProfileInterface> {
-    const fullUrl = `${environment.apiUrl}/profile/${slug}`;
+    const fullUrl = `${environment.apiUrl}/profiles/${slug}`;
 
     return this.http.get(fullUrl).pipe(
       map((response: GetUserProfileResponseInterface) => response.profile)
