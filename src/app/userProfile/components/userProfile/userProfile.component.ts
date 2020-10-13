@@ -41,8 +41,8 @@ export class UserProfileComponent implements OnInit {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
     this.apiUrl = isFavorites
-      ? `/article?favorited=${this.slug}`
-      : `/article?author=${this.slug}`;
+      ? `/articles?favorited=${this.slug}`
+      : `/articles?author=${this.slug}`;
     this.isCurrentUserProfile$ = combineLatest([
       this.store.pipe(select(currentUserSelector), filter(Boolean)),
       this.store.pipe(select(userProfileSelector), filter(Boolean)),
