@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
-    this.fetchData();
+    this.fetchUserProfile();
   }
 
   initializeValues(): void {
@@ -58,9 +58,14 @@ export class UserProfileComponent implements OnInit {
     .subscribe((userProfile: UserProfileInterface) => {
       this.userProfile = userProfile;
     });
+
+    this.route.params.subscribe((params: Params) => {
+      this.slug = params.slug;
+      this.fetchUserProfile();
+    });
   }
 
-  fetchData(): void {
+  fetchUserProfile(): void {
     this.store.dispatch(getUserProfileAction({slug: this.slug}));
   }
 
