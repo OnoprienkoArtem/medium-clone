@@ -3,10 +3,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+
 import { currentUserSelector } from 'src/app/auth/store/selectors';
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { getUserProfileAction } from '../../store/actions/getUserProfile.action';
 import { errorSelector, isLoadingSelector, userProfileSelector } from '../../store/selectors';
+
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { UserProfileInterface } from '../../types/userProfile.interface';
 
 @Component({

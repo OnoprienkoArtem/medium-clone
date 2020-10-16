@@ -31,8 +31,8 @@
                 class="nav-link"
                 [routerLink]="['/profiles', userProfile.username]"
                 routerLinkActive="active"
-                [routerLinkActiveOptions]="{ 
-                  exact: true,                 
+                [routerLinkActiveOptions]="{
+                  exact: true,
                   __change_detection_hack__: userProfile.username
                 }"
               >
@@ -44,7 +44,7 @@
                 class="nav-link"
                 [routerLink]="['/profiles', userProfile.username, 'favorites']"
                 routerLinkActive="active"
-                [routerLinkActiveOptions]="{ 
+                [routerLinkActiveOptions]="{
                   exact: true,
                   __change_detection_hack__: userProfile.username
                 }"
