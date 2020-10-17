@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
-import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
+
 import { loginAction } from '../../store/actions/login.action';
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors';
+
 import { LoginRequestInterface } from '../../types/loginRequest.interface';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 
 @Component({
   selector: 'mc-login',

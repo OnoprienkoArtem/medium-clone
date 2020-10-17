@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { ArticleInterface } from 'src/app/shared/types/article.interface';
 import { ActionTypes } from '../actionTypes';
 
 export const deleteArticleAction = createAction(

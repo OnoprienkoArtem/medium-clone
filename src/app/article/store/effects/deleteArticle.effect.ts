@@ -4,13 +4,14 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
+
 import { ArticleService } from '../../services/article.service';
+
 import {
   deleteArticleAction,
   deleteArticleFailureAction,
   deleteArticleSuccessAction,
 } from '../actions/deleteArticle.action';
-
 
 @Injectable()
 export class DeleteArticleEffect {
@@ -34,7 +35,6 @@ export class DeleteArticleEffect {
     ),
     { dispatch: false }
   );
-
 
   constructor(
     private router: Router,

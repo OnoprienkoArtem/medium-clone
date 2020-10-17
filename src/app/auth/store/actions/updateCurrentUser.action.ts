@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
 import { ActionTypes } from '../actionTypes';
+
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 import { CurrentUserInputInterface } from 'src/app/shared/types/currentUserInput.interface';

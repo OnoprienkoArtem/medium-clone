@@ -3,10 +3,17 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+
 import { AuthService } from '../../services/auth.service';
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { PersistanceService } from 'src/app/shared/services/persistance.service';
-import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from '../actions/getCurrentUser.action';
+
+import {
+  getCurrentUserAction,
+  getCurrentUserFailureAction,
+  getCurrentUserSuccessAction,
+} from '../actions/getCurrentUser.action';
+
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 
 
 @Injectable()

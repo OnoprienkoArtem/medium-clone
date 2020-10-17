@@ -1,7 +1,13 @@
 import { routerNavigationAction } from '@ngrx/router-store';
 import { Action, createReducer, on } from '@ngrx/store';
+
 import { ArticleStateInterface } from '../types/articleState.interface';
-import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from './actions/getArticle.action';
+
+import {
+  getArticleAction,
+  getArticleFailureAction,
+  getArticleSuccessAction,
+} from './actions/getArticle.action';
 
 
 const initialState: ArticleStateInterface = {

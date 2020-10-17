@@ -2,18 +2,21 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
+
 import { ArticleService } from 'src/app/shared/services/article.service';
+
 import { ArticleInterface } from 'src/app/shared/types/article.interface';
+
 import {
   getArticleAction,
   getArticleFailureAction,
   getArticleSuccessAction,
 } from '../actions/getArticle.action';
 
-
 @Injectable()
 export class GetArticleEffect {
+
   getArticle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getArticleAction),

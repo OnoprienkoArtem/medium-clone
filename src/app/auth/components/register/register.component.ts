@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { registerAction } from '../../store/actions/register.action';
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors';
+
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface';
 

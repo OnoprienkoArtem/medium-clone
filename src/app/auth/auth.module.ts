@@ -10,6 +10,7 @@ import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessag
 import { RegisterComponent } from 'src/app/auth/components/register/register.component';
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
 
+import { LogoutEffect } from './store/effects/logout.effect';
 import { RegisterEffect } from 'src/app/auth/store/effects/register.effect';
 import { UpdateCurrentUserEffect } from './store/effects/updateCurrentUser.effect';
 import { GetCurrentUserEffect } from 'src/app/auth/store/effects/getCurrentUser.effect';
@@ -17,7 +18,6 @@ import { LoginEffect } from 'src/app/auth/store/effects/login.effect';
 import { reducers } from 'src/app/auth/store/reducers';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { LogoutEffect } from './store/effects/logout.effect';
 
 const routes = [
   {

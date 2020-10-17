@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+
 import { AuthService } from '../../services/auth.service';
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
-import { HttpErrorResponse } from '@angular/common/http';
+
 import {
   updateCurrentUserAction,
   updateCurrentUserFailureAction,
   updateCurrentUserSuccessAction,
 } from '../actions/updateCurrentUser.action';
 
+import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 
 @Injectable()
 export class UpdateCurrentUserEffect {

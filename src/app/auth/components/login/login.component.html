@@ -12,7 +12,7 @@
         >
         </mc-backend-error-messages>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <fieldset> 
+          <fieldset>
             <fieldset class="form-group">
               <input
                 type="text"
@@ -31,8 +31,8 @@
                 formControlName="password"
               />
             </fieldset>
-            <button 
-              class="btn btn-lg btn-primary pull-xs-right" 
+            <button
+              class="btn btn-lg btn-primary pull-xs-right"
               type="submit"
               [disabled]="isSubmitting$ | async"
             >
@@ -44,4 +44,3 @@
     </div>
   </div>
 </div>
-

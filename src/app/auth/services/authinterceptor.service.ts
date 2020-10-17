@@ -1,6 +1,8 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
+
 import { PersistanceService } from 'src/app/shared/services/persistance.service';
 
 @Injectable()
@@ -12,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = this.persistanceService.get('accessToken');
     request = request.clone({
       setHeaders: {
-        Authorization: token ? `Token ${token}` : ''
+        Authorization: token ? `Token ${token}` : '',
       }
     });
 
