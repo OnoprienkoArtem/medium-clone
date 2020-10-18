@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+
 import { addToFavoritesAction } from '../../store/actions/addToFavorites.action';
 
 @Component({

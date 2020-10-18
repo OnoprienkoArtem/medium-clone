@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class PaginationComponent implements OnInit {
   pagesCount: number;
   pages: number[];
 
-  constructor(private utilsService: UtilsService) {}
+  constructor(private utilsService: UtilsService) { }
 
   ngOnInit(): void {
     this.pagesCount = Math.ceil(this.total / this.limit);

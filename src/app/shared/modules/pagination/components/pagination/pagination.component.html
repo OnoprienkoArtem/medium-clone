@@ -4,7 +4,7 @@
     class="page-item"
     [ngClass]="{ active: currentPage === page }"
   >
-    <a [routerLink]="[url]" [queryParams]="{page: page}" class="page-link">
+    <a [routerLink]="[url]" [queryParams]="{ page: page }" class="page-link">
       {{ page }}
     </a>
   </li>

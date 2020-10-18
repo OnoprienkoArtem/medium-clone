@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
 
-import { select, Store } from '@ngrx/store';
 import { isLoggedInSelector } from 'src/app/auth/store/selectors';
 
 @Component({
@@ -23,5 +24,4 @@ export class FeedTogglerComponent implements OnInit {
   initializeValues(): void {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
   }
-
 }

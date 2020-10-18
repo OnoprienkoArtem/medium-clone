@@ -4,16 +4,11 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { environment } from 'src/environments/environment';
-import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
-
-import { AuthInterceptor } from './auth/services/authinterceptor.service';
-import { PersistanceService } from './shared/services/persistance.service';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { YourFeedModule } from './shared/modules/yourFeed/yourFeed.module';
 import { TagFeedModule } from './shared/modules/tagFeed/tagFeed.module';
@@ -22,6 +17,13 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
 import { EditArticleModule } from './editArticle/editArticle.module';
 import { SettingsModule } from './settings/settings.module';
 import { UserProfileModule } from './userProfile/userProfile.module';
+
+import { PersistanceService } from './shared/services/persistance.service';
+import { AuthInterceptor } from './auth/services/authInterceptor.service';
+
+import { AppComponent } from './app.component';
+
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [

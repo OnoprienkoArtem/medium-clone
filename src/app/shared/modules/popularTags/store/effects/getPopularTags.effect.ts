@@ -3,8 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+
 import { PopularTagType } from 'src/app/shared/types/popularTag.type';
-import { PopularTagsService } from '../../services/popularTags.services';
+import { PopularTagsService } from '../../services/popularTags.service';
 import {
   getPopularTagsAction,
   getPopularTagsFailureAction,

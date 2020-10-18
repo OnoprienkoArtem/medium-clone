@@ -1,7 +1,9 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { EditArticleStateInterface } from '../types/editArticleState.interface';
+
 import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from './actions/getArticle.action';
 import { updateArticleAction, updateArticleFailureAction, updateArticleSuccessAction } from './actions/updateArticle.action';
+
+import { EditArticleStateInterface } from '../types/editArticleState.interface';
 
 const initialState: EditArticleStateInterface = {
   isLoading: false,

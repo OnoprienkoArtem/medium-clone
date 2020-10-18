@@ -1,6 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import { ArticleInterface } from 'src/app/shared/types/article.interface';
+
 import { ActionTypes } from '../actionTypes';
+
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 
 export const addToFavoritesAction = createAction(
   ActionTypes.ADD_TO_FAVORITES,

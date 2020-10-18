@@ -3,8 +3,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+
 import { UserProfileService } from '../../services/userProfile.service';
-import { UserProfileInterface } from '../../types/userProfile.interface';
 
 import {
   getUserProfileAction,
@@ -12,6 +12,7 @@ import {
   getUserProfileSuccessAction,
 } from '../actions/getUserProfile.action';
 
+import { UserProfileInterface } from '../../types/userProfile.interface';
 
 @Injectable()
 export class GetUserProfileEffect {

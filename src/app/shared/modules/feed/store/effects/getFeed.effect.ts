@@ -3,13 +3,17 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
+
 import { FeedService } from '../../services/feed.service';
-import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
+
 import { getFeedAction, getFeedFailureAction, getFeedSuccessAction } from '../actions/getFeed.action';
+
+import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 
 
 @Injectable()
 export class GetFeedEffect {
+  
   getFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getFeedAction),

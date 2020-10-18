@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { YourFeedComponent } from './components/yourFeed/yourFeed.component';
 import { RouterModule } from '@angular/router';
+
 import { FeedModule } from '../feed/feed.module';
 import { BannerModule } from '../banner/banner.module';
 import { PopularTagsModule } from '../popularTags/popularTags.module';
 import { FeedTogglerModule } from '../feedToggler/feedToggler.module';
+
+import { YourFeedComponent } from './components/yourFeed/yourFeed.component';
 
 const routes = [
   {

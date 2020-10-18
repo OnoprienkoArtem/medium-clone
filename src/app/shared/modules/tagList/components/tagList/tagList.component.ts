@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { PopularTagType } from 'src/app/shared/types/popularTag.type';
 
 @Component({

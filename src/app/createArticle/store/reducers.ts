@@ -1,6 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { CreateArticleStateInterface } from '../types/createArticleState.interface';
+
 import { createArticleAction, createArticleFailureAction, createArticleSuccessAction } from './actions/createArticle.action';
+
+import { CreateArticleStateInterface } from '../types/createArticleState.interface';
 
 const initialState: CreateArticleStateInterface = {
   isSubmitting: false,

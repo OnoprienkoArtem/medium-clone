@@ -3,10 +3,12 @@ import { select, Store } from '@ngrx/store';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Observable, Subscription } from 'rxjs';
+
 import { stringify, parseUrl } from 'query-string';
 
 import { getFeedAction } from '../../store/actions/getFeed.action';
 import { errorSelector, feedSelector, isLoadingSelector } from '../../store/selectors';
+
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 
 import { environment } from 'src/environments/environment';

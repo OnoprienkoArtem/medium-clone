@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { RouterModule } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
 
 import { UserProfileService } from './services/userProfile.service';
 
 import { GetUserProfileEffect } from './store/effects/getUserProfile.effect';
 import { reducers } from './store/reducers';
 
-import { EffectsModule } from '@ngrx/effects';
 import { FeedModule } from '../shared/modules/feed/feed.module';
 
 import { UserProfileComponent } from './components/userProfile/userProfile.component';

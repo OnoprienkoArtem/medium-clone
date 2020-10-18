@@ -1,6 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { UserProfileStateInterface } from '../types/userProfileState.interface';
+
 import { getUserProfileAction, getUserProfileSuccessAction } from './actions/getUserProfile.action';
+
+import { UserProfileStateInterface } from '../types/userProfileState.interface';
 
 const initialState: UserProfileStateInterface = {
   data: null,

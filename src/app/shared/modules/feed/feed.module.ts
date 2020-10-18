@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { FeedService } from './services/feed.service';
+
 import { GetFeedEffect } from './store/effects/getFeed.effect';
 import { reducers } from './store/reducers';
 

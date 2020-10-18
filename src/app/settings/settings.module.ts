@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SettingsComponent } from './components/settings/settings.component';
 import { RouterModule } from '@angular/router';
-import { reducers } from './store/reducers';
-import { StoreModule } from '@ngrx/store';
-import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
+
+import { reducers } from './store/reducers';
+
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes = [
   {

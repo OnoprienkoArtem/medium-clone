@@ -5,15 +5,12 @@
   [errorMessage]="error$ | async"
 ></mc-error-message>
 
-<div 
-  class="sidebar"
-  *ngIf="popularTags$ | async"  
->
+<div class="sidebar" *ngIf="popularTags$ | async">
   <p>Popular Tags</p>
   <div class="tag-list">
-    <a 
+    <a
       class="tag-default tag-pill"
-      *ngFor="let popularTag of popularTags$ |async"
+      *ngFor="let popularTag of popularTags$ | async"
       [routerLink]="['/tags', popularTag]"
     >
       {{ popularTag }}

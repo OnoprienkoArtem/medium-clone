@@ -6,10 +6,15 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
-import { ArticleInterface } from 'src/app/shared/types/article.interface';
 import { CreateArticleService } from '../../services/createArticle.service';
-import { createArticleAction, createArticleFailureAction, createArticleSuccessAction } from '../actions/createArticle.action';
 
+import {
+  createArticleAction,
+  createArticleFailureAction,
+  createArticleSuccessAction,
+} from '../actions/createArticle.action';
+
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 
 @Injectable()
 export class CreateArticleEffect {

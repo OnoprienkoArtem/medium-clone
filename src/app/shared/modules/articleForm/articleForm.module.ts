@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArticleFormComponent } from './components/articleForm/articleForm.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
 import { LoadingModule } from '../loading/loading.module';
 import { BackendErrorMessagesModule } from '../backendErrorMessages/backendErrorMessages.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
+import { ArticleFormComponent } from './components/articleForm/articleForm.component';
 
 @NgModule({
   declarations: [ArticleFormComponent],

@@ -4,12 +4,13 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterModule } from '@angular/router';
 
-import { GetPopularTagsEffect } from './store/effects/getPopularTags.effect';
-import { PopularTagsComponent } from './components/popularTags/popularTags.component';
-import { LoadingModule } from '../loading/loading.module';
 import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
+import { LoadingModule } from '../loading/loading.module';
+
+import { GetPopularTagsEffect } from './store/effects/getPopularTags.effect';
 import { reducers } from './store/reducers';
 
+import { PopularTagsComponent } from './components/popularTags/popularTags.component';
 
 @NgModule({
   declarations: [PopularTagsComponent],

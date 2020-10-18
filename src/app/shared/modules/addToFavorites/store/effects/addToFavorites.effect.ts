@@ -3,17 +3,20 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { ArticleInterface } from 'src/app/shared/types/article.interface';
+
 import { AddToFavoritesService } from '../../services/addToFavorites.service';
-import { 
+
+import {
   addToFavoritesAction,
   addToFavoritesFailureAction,
   addToFavoritesSuccessAction,
- } from '../actions/addToFavorites.action';
+} from '../actions/addToFavorites.action';
 
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 
 @Injectable()
 export class AddToFavoritesEffect {
+
   addToFavorites$ = createEffect(() =>
     this.actions$.pipe(
       ofType(addToFavoritesAction),
